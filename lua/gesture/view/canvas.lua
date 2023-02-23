@@ -29,13 +29,13 @@ local BOARD_PRIORITY = POINT_PRIORITY + 1
 function Canvas._draw_board(self, y, ranges)
   local row = self._board_rows[y] or {}
   local col, virtual_texts = converter.board_to_virtual_texts(ranges)
-  local id = set_extmark(self._bufnr, self._ns, y - 1, col, {
-    virt_text = virtual_texts,
-    virt_text_pos = "overlay",
-    id = row.id,
-    priority = BOARD_PRIORITY,
-  })
-  self._board_rows[y] = { id = id }
+  -- local id = set_extmark(self._bufnr, self._ns, y - 1, col, {
+  --   virt_text = virtual_texts,
+  --   virt_text_pos = "overlay",
+  --   id = row.id,
+  --   priority = BOARD_PRIORITY,
+  -- })
+  -- self._board_rows[y] = { id = id }
 end
 
 function Canvas._draw_point(self, p, hl_group)

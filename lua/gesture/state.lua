@@ -21,6 +21,7 @@ function State.get_or_create()
     inputs = Inputs.new(),
     view = view,
     matcher = matcher,
+    points = {},
   }
   local self = setmetatable(tbl, State)
 
@@ -38,6 +39,7 @@ function State.update(self)
   if not point then
     return false
   end
+  self.points = vim.list_extend(self.points, {point})
 
   local line = self._last_point:line_to(point)
   if not line or line:is_short() then

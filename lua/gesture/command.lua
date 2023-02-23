@@ -31,15 +31,16 @@ function M.finish()
     return
   end
 
-  local param = state:close()
-  local gesture = state.matcher:match(state.inputs)
-  if gesture then
-    local err = gesture:execute(param)
-    if err then
-      require("gesture.vendor.misclib.message").error(err)
-    end
-    return
-  end
+  state:close()
+  return state.points
+  -- local gesture = state.matcher:match(state.inputs)
+  -- if gesture then
+  --   local err = gesture:execute(param)
+  --   if err then
+  --     require("gesture.vendor.misclib.message").error(err)
+  --   end
+  --   return
+  -- end
 end
 
 function M.cancel(window_id)
