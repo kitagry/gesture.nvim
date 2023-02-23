@@ -7,7 +7,7 @@ end
 
 --- Finish the gesture and execute matched action.
 function M.finish()
-  require("gesture.command").finish()
+  return require("gesture.command").finish()
 end
 
 --- Cancel the gesture.
